@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1> Welcome to Wiki this clone! </h1>
+    <div>
+        <p>This Harvard CS50 project was created for training purposes in order to help understand Django.</p>
+        <p>Feel free to add something of your own!</p>
+        <p>Use <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Markdown language</a> for editing.</p>
+    </div>
+
+    <h3>All available entries:</h3>
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{% url 'entry' title=entry %}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Entry not found: {{title}}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Error: Entry "{{title}}" does not exist</h1>
+
+    <p>Use the form below to create a new Wiki Page.</p>
+    <p>Use <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Markdown language</a> for editing</p>
+
+    {% if related_titles %}
+    <p>Related Entries:</p>
+        <ul>
+            {% for title in related_titles %}
+            <li><a href="{% url 'entry' title=title %}">{{ title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+{% endblock %}
